@@ -2,12 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const IndexCard = props => (
-  <div>
-    <h2>{props.name}</h2>
-    <img src={props.logo_file} />
-    <p>{props.rating}</p>
-    <p>{props.description}</p>
-  </div>
+  <React.Fragment>
+    <p className="index-card-rating">{props.rating}</p>
+    <div className="index-card-body">
+      <img src={props.logo_file} className="index-card-img" title={props.name}/>
+      <p className="index-card-description">{props.description}</p>
+    </div>
+  </React.Fragment>
 )
 
 IndexCard.propTypes = {

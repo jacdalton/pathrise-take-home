@@ -1,3 +1,8 @@
-<% @job_boards.each do |jb| %>
-  <%= react_component("IndexCard", { name: jb["name"], rating: jb["rating"], description: jb["description"], logo_file: jb["logo_file"]  }) %>
-<% end %>
+<div class="index-wrapper">
+  <h1 id="job-sources-header">Job Sources</h1>
+  <div class="index-card-container">
+    <% @job_boards.each do |jb| %>
+      <%= react_component("IndexCard", { name: jb["name"], rating: jb["rating"], description: jb["description"], logo_file: jb["logo_file"] }, {class: "index-card", prerender: true}) %>
+    <% end %>
+  </div>
+</div>
