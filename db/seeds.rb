@@ -17,15 +17,19 @@ CSV.foreach(filepath) do |row|
     first_row = false
     next
   else
-    # Create a new JobOpportunity in the database
-    JobOpportunity.create(
+    # Create instance of Resolver using jobBoards.json to add job_source to database
+    resolver = Resolver.new("jobBoards.json")
+    # Create a new JobOpportunity to pass to resolver
+    job_opp = JobOpportunity.new(
       id: row[0],
       job_title: row[1],
       company_name: row[2],
       job_url: row[3]
-      # TODO: Implement resolver to add job_source (don't seed yet!)
-      # job_source: Resolver
     )
+    # Set the job_source using the resolver
+    job_opp.job_source = resolver.resolve_one(job_opp)
+    # Save the instance
+    job_opp.save!
     puts "Job opportunity #{row[0]} created"
   end
 end

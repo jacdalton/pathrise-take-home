@@ -12,18 +12,20 @@ class Resolver
     # job param should be instance of JobOpportunity & have company_name and job_url attributes
     # Initialize job_source to unknown (should return this if other checks fail)
     job_source = "Unknown"
-    # resolve_jb will be either job board name or nil
-    resolve_jb = resolve_job_board(job.job_url)
-    if resolve_jb.nil?
-      # If resolve_jb is nil, no job board was found so we check for presence of company name in URL
-      resolve_company = resolve_company_website(job)
-      if resolve_company
-        # If company name is found in URL, set job source to Company Website
-        job_source = "Company Website"
+    # Only want to do the resolving checks if the url exists
+    if !job.job_url.nil?
+      # resolve_jb will be either job board name or nil
+      resolve_jb = resolve_job_board(job.job_url)
+      if resolve_jb.nil?
+        # If resolve_jb is nil, no job board was found so we check for presence of company name in URL
+        if resolve_company_website(job)
+          # If company name is found in URL, set job source to Company Website
+          job_source = "Company Website"
+        end
+      else
+        # if resolve_jb is not nil, set job_source to the job board name
+        job_source = resolve_jb
       end
-    else
-      # if resolve_jb is not nil, set job_source to the job board name
-      job_source = resolve_jb
     end
 
     return job_source
