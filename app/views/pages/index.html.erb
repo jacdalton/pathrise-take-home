@@ -2,7 +2,7 @@
   <h1 id="job-sources-header">Job Sources</h1>
   <div class="index-card-container">
     <% @job_boards.each do |jb| %>
-      <%= react_component("IndexCard", { name: jb["name"], rating: jb["rating"], description: jb["description"], logo_file: jb["logo_file"] }, {class: "index-card", prerender: true}) %>
+      <%= react_component("IndexCard", { name: jb["name"], rating: jb["rating"], description: jb["description"], logo_file: jb["logo_file"], link_to: jb["name"].downcase.gsub(/[[:space:]]+|[^a-zA-Z ]+/, "") }, {class: "index-card"}) %>
     <% end %>
   </div>
 </div>

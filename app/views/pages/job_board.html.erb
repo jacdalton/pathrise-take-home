@@ -1,0 +1,8 @@
+<h1>Job Source: <%= @job_source %></h1>
+<% if @jb_opps.length > 0 %>
+  <%= react_component("JobBoardTable", { headers: @headers, rows: @jb_opps }, {class: "index-card"}) %>
+<% else %>
+  <div>
+    Sorry, this job source doesn't have any opportunities right now!
+  </div>
+<% end %>
