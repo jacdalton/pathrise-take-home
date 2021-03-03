@@ -1,8 +1,10 @@
-<h1>Job Source: <%= @job_source %></h1>
-<% if @jb_opps.length > 0 %>
-  <%= react_component("JobBoardTable", { headers: @headers, rows: @jb_opps }, {class: "index-card"}) %>
-<% else %>
-  <div>
-    Sorry, this job source doesn't have any opportunities right now!
-  </div>
-<% end %>
+<div class="job-board-container">
+  <h1>Job Source: <%= @job_source %></h1>
+  <% if @jb_opps.length > 0 %>
+    <%= react_component("JobBoardTable", { headers: @headers, rows: @jb_opps }) %>
+  <% else %>
+    <div style="margin: 0.5rem;">
+      Sorry, this job source doesn't have any opportunities right now!
+    </div>
+  <% end %>
+</div>

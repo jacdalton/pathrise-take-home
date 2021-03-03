@@ -5,7 +5,13 @@ const JobBoardTable = props => (
   <table>
   <thead>
     <tr>
-      {props.headers.map(header => <th key={header}>{header}</th>)}
+      {props.headers.reduce((acc, val) => {
+        if (val != "Job Source") {
+          acc.push(<th key={val}>{val}</th>);
+        }
+        return acc;
+        }, [])
+      }
     </tr>
   </thead>
   <tbody>
@@ -14,8 +20,7 @@ const JobBoardTable = props => (
         <td>{row.id}</td>
         <td>{row.job_title}</td>
         <td>{row.company_name}</td>
-        <td>{row.job_url}</td>
-        <td>{row.job_source}</td>
+        <td className="job-url-cell" title={row.job_url}>{row.job_url}</td>
       </tr>
     )}
   </tbody>
