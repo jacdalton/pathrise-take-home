@@ -50,7 +50,7 @@ Resolver service is provided to resolve job sources based on given job opportuni
 
 ## Publicly Accessible Interface
 Please note that this is being hosted using a free plan on Heroku and, as such, may take some extra time on initial load for the dynos to "wake up."
-* Link: jdalton-take-home.herokuapp.com
+* Link: https://jdalton-take-home.herokuapp.com/
 
 ## Job Source Resolution CSV
 Provided in the root folder as `job_opportunities_resolution.csv`
