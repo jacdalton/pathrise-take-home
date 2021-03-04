@@ -19,6 +19,7 @@
 
 ## Third-party Libraries
 * `react-rails` gem to incorporate React components with the Rails project
+* Meyer web CSS reset to have a clean slate (http://meyerweb.com/eric/tools/css/reset/)
 
 ## Implementation Explanation
 ### Resolver

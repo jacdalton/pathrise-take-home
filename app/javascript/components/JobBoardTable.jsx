@@ -6,8 +6,16 @@ const JobBoardTable = props => (
   <thead>
     <tr>
       {props.headers.reduce((acc, val) => {
-        if (val != "Job Source") {
-          acc.push(<th key={val}>{val}</th>);
+        switch(val) {
+          case 'Job Url':
+            acc.push(<th className="job-url-header" key={val}>{val}</th>);
+            break;
+          case 'Id':
+            acc.push(<th className="job-id-header" key={val}>{val}</th>);
+          case 'Job Source':
+            break;
+          default:
+            acc.push(<th key={val}>{val}</th>);
         }
         return acc;
         }, [])
