@@ -25,6 +25,8 @@ CSV.foreach(filepath) do |row|
       job_title: row[1],
       company_name: row[2],
       job_url: row[3]
+      created_at: Date.today,
+      updated_at: Date.today
     )
     # Set the job_source using the resolver
     job_opp.job_source = resolver.resolve_one(job_opp)
