@@ -24,7 +24,7 @@ CSV.foreach(filepath) do |row|
       id: row[0],
       job_title: row[1],
       company_name: row[2],
-      job_url: row[3]
+      job_url: row[3],
       created_at: Date.today,
       updated_at: Date.today
     )
